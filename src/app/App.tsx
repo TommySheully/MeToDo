@@ -17,7 +17,6 @@ import {useAppDispatch, useAppSelector} from "./store";
 import {initializeAppTC, RequestStatusType} from "./app-reducer";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
 import {Route, Routes} from 'react-router-dom';
-import CircularProgress from '@mui/material/CircularProgress/CircularProgress';
 import Loading from "../components/Loading/Loading";
 import {logoutTC} from "../features/Login/auth-reducer";
 
