@@ -1,7 +1,6 @@
 import {Dispatch} from "redux";
-import { authAPI } from "../api/todolists-api";
+import {authAPI} from "../api/todolists-api";
 import {authLoginEnum, setIsLoggedInAC} from "../features/Login/auth-reducer";
-import {useEffect} from "react";
 import {handleServerAppError} from "../utils/error-utils";
 
 export type RequestStatusType = 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -52,7 +51,6 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
             dispatch(setIsInitializedAC(true));
         })
 }
-
 
 export type setAppStatusACType = ReturnType<typeof setAppStatusAC>
 export type setAppErrorACType = ReturnType<typeof setAppErrorAC>

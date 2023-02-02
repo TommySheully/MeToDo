@@ -8,7 +8,6 @@ const instance = axios.create({
     }
 })
 
-
 export const authAPI = {
     login(loginAuth: loginAuthType) {
         return instance.post<loginAuthType, AxiosResponse<ResponseType<{ userId: number }>>>(`auth/login`, loginAuth)

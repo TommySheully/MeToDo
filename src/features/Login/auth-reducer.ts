@@ -1,11 +1,5 @@
 import {Dispatch} from 'redux'
-import {
-    setAppErrorACType,
-    setAppStatusAC,
-    setAppStatusACType,
-    setIsInitializedAC,
-    setIsInitializedACType
-} from '../../app/app-reducer'
+import {setAppErrorACType, setAppStatusAC, setAppStatusACType, setIsInitializedACType} from '../../app/app-reducer'
 import {authAPI, loginAuthType} from "../../api/todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import axios from 'axios';
@@ -49,22 +43,6 @@ export const loginTC = (loginAuth: loginAuthType) => async (dispatch: Dispatch<A
         {axios.isAxiosError(rej) && handleServerNetworkError(rej, dispatch)}
         // if (axios.isAxiosError(rej)) проверка нашего rej на наличие, если он true, тогда выполни handleServerNetworkError
     }
-
-
-/*    dispatch(setAppStatusAC('loading'))
-    authAPI.login(loginAuth)
-        .then(res => {
-                if (res.data.resultCode === 0) {
-                    dispatch(setIsLoggedInAC(true))
-                    dispatch(setAppStatusAC('succeeded'))
-                } else {
-                    handleServerAppError(res.data, dispatch)
-                }
-            }
-        )
-        .catch((rej) => {
-            handleServerNetworkError(rej, dispatch)
-        })*/
 }
 
 export const logoutTC = () => (dispatch: Dispatch<ActionsType>) => {

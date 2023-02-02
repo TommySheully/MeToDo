@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import './App.css'
-import {TodolistsList} from '../features/TodolistsList/TodolistsList'
+import {ToDoListsList} from '../features/TodolistsList/ToDoListsList'
 import {Login} from '../features/Login/Login'
 
 
@@ -59,7 +59,7 @@ function App() {
             </AppBar>
             <Container fixed>
                 <Routes>
-                    <Route path={'/'} element={<TodolistsList/>}/>
+                    <Route path={'/'} element={<ToDoListsList/>}/>
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path='*' element={<h1>404: PAGE NOT FOUND</h1>}/>
                 </Routes>
