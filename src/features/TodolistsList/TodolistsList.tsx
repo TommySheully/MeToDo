@@ -9,7 +9,7 @@ import {
     removeTodolistTC,
     TodolistDomainType
 } from './todolists-reducer'
-import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './tasks-reducer'
+import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './Todolist/Task/tasks-reducer'
 import {TaskStatuses} from '../../api/todolists-api'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
@@ -17,6 +17,7 @@ import {Todolist} from './Todolist/Todolist'
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import {RequestStatusType} from "../../app/app-reducer";
+import {Navigate} from "react-router-dom";
 
 export const TodolistsList: React.FC = () => {
 
@@ -24,9 +25,12 @@ export const TodolistsList: React.FC = () => {
     const tasks = useAppSelector<TasksStateType>(state => state.tasks)
     const entityStatus = useAppSelector<RequestStatusType>(state => state.app.status)
 
+
     const dispatch = useAppDispatch()
+    const isLoggerIn = useAppSelector<boolean>((store) => store.auth.isLoggedIn)
 
     useEffect(() => {
+        if (!isLoggerIn) return;
         const thunk = fetchTodolistsTC()
         dispatch(thunk)
     }, [])
@@ -71,6 +75,7 @@ export const TodolistsList: React.FC = () => {
         dispatch(thunk)
     }, [])
 
+    if (!isLoggerIn) return <Navigate to={'/login'}/>
 
     return <>
         <Grid container style={{padding: '20px'}}>
