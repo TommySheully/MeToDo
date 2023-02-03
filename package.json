@@ -1,5 +1,6 @@
 {
-  "name": "todo15v3",
+  "name": "MeToDo",
+  "homepage":"https://TommySheully.github.io/MeToDo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
