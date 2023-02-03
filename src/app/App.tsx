@@ -58,8 +58,8 @@ function App() {
             </AppBar>
             <Container fixed>
                 <Routes>
-                    <Route path='/' element={<Navigate to={'/MeToDo'}/>}/>
-                    <Route path={'/MeToDo'} element={<ToDoListsList/>}/>
+                    <Route path='/' element={<Navigate to={'/ToDoListsList'}/>}/>
+                   {/* <Route path={'/MeToDo'} element={<ToDoListsList/>}/>*/}
                    {/* раньше было просто вот так   <Route path={'/'} element={<ToDoListsList/>}/>*/}
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path='*' element={<h1>404: PAGE NOT FOUND</h1>}/>
