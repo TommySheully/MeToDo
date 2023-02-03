@@ -16,7 +16,7 @@ import LinearProgress from '@mui/material/LinearProgress/LinearProgress';
 import {useAppDispatch, useAppSelector} from "./store";
 import {initializeAppTC, RequestStatusType} from "./app-reducer";
 import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
-import {Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import Loading from "../components/Loading/Loading";
 import {logoutTC} from "../features/Login/auth-reducer";
 
@@ -58,7 +58,9 @@ function App() {
             </AppBar>
             <Container fixed>
                 <Routes>
-                    <Route path={'/'} element={<ToDoListsList/>}/>
+                    <Route path='/' element={<Navigate to={'/MeToDo'}/>}/>
+                    <Route path={'/MeToDo'} element={<ToDoListsList/>}/>
+                   {/* раньше было просто вот так   <Route path={'/'} element={<ToDoListsList/>}/>*/}
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path='*' element={<h1>404: PAGE NOT FOUND</h1>}/>
                 </Routes>
